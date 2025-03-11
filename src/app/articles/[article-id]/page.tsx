@@ -1,3 +1,4 @@
+import ArticleDetail from "@/components/view/ArticleDetail";
 import { getArticleDetail } from "@/services/request";
 import { Article } from "@/types/type";
 
@@ -9,10 +10,5 @@ export default async function ArticlePage({
   const { "article-id": articleId } = params;
   const article: Article = await getArticleDetail(articleId);
 
-  return (
-    <div>
-      <h1>Article ID: {article.id}</h1>
-      <p>This is the article page for ID: {article.title}.</p>
-    </div>
-  );
+  return <ArticleDetail {...article} />;
 }
