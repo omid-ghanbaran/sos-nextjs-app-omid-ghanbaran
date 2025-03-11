@@ -20,7 +20,7 @@ export default function Header(props: Props) {
     { title: "شعبه های ما", to: "" },
     { title: "مراکز خدمات درمانی", to: "" },
     { title: "ToDo List", to: "/todo-list" },
-    { title: "صفحه اصلی", to: "" },
+    { title: "صفحه اصلی", to: "/" },
   ];
 
   const { window } = props;
