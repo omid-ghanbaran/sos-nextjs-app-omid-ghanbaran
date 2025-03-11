@@ -24,7 +24,7 @@ export default function RootLayout({
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Header />
-          <Container maxWidth="xl" className="min-h-screen mt-24">
+          <Container maxWidth="xl" className="min-h-screen mt-24 mb-24">
             {children}
           </Container>
           <Footer />

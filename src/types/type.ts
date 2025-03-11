@@ -3,6 +3,7 @@ export interface Article {
   title: string;
   content: string;
   imageBlog: string;
+  studyTime: string;
 }
 
 export interface ArticleCardProps {
