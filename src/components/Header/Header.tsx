@@ -2,20 +2,12 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
-import {
-  Box,
-  Divider,
-  Drawer,
-  Link,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-} from "@mui/material";
+import { Box, Divider, Drawer, List, ListItem } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   window?: () => Window;
@@ -24,11 +16,11 @@ interface Props {
 export default function Header(props: Props) {
   const drawerWidth = 440;
   const navItems = [
-    "سوال های متداول",
-    "شعبه های ما",
-    "مراکز خدمات درمانی",
-    "ToDo List",
-    "صفحه اصلی",
+    { title: "سوال های متداول", to: "" },
+    { title: "شعبه های ما", to: "" },
+    { title: "مراکز خدمات درمانی", to: "" },
+    { title: "ToDo List", to: "/todo-list" },
+    { title: "صفحه اصلی", to: "" },
   ];
 
   const { window } = props;
@@ -53,10 +45,11 @@ export default function Header(props: Props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
+          <ListItem
+            key={item.title}
+            sx={{ display: "flex", justifyContent: "center", paddingLeft: "0" }}
+          >
+            <Link href={item.to}>{item.title}</Link>
           </ListItem>
         ))}
       </List>
@@ -98,11 +91,12 @@ export default function Header(props: Props) {
               display: { xs: "none", sm: "flex" },
               gap: 2,
               justifyContent: "space-between",
+              color: "black",
             }}
           >
             {navItems.map((item) => (
-              <Link underline="none" key={item} href="#">
-                {item}
+              <Link key={item.title} href={item.to}>
+                {item.title}
               </Link>
             ))}
           </Grid>
