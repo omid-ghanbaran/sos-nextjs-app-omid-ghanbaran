@@ -6,6 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import Container from "@mui/material/Container";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,14 +20,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Header />
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          {children}
+          <Header />
+          <Container maxWidth="xl" className="min-h-screen mt-24">
+            {children}
+          </Container>
+          <Footer />
         </ThemeProvider>
       </body>
-      <Footer />
     </html>
   );
 }

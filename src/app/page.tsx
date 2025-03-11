@@ -1,20 +1,16 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import { Article } from "@/types/type";
+import { getPosts } from "@/services/request";
+import ArticleCard from "@/components/view/Article";
+import ArticleList from "@/components/view/ArticleList";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const articles: Article[] = await getPosts();
   return (
-    <Container maxWidth="md" className="min-h-screen">
-      <Typography variant="h2" component="h1" gutterBottom>
-        Welcome to My Next.js App!
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        This is a simple page using Material-UI and TypeScript.
-      </Typography>
-      <Button variant="contained" color="primary">
-        Click Me
-      </Button>
-    </Container>
+    <ArticleList>
+      {articles.map((article) => (
+        <ArticleCard article={article} key={article.id} />
+      ))}
+    </ArticleList>
   );
 }

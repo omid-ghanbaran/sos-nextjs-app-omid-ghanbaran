@@ -13,7 +13,6 @@ import {
   ListItemText,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
@@ -41,13 +40,16 @@ export default function Header(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Image
-        src="/assets/logo/sos-logo.svg"
-        alt="Logo"
-        width={200}
-        height={50}
-        style={{ margin: "16px 0" }}
-      />
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Image
+          src="/assets/logo/sos-logo.svg"
+          alt="Logo"
+          width={200}
+          height={50}
+          style={{ margin: "16px 0" }}
+        />
+      </Box>
+
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -75,12 +77,17 @@ export default function Header(props: Props) {
           justifyContent: "space-between",
         }}
       >
-        <Grid container justifyContent="center" alignItems="center" spacing={2}>
+        <Grid
+          container
+          justifyContent="space-between"
+          alignItems="center"
+          spacing={2}
+        >
           <Grid
+            size={{ xs: 6, sm: 2 }}
             sx={{
               display: "flex",
               justifyContent: "center",
-              size: { xs: "6", sm: "2" },
             }}
           >
             <Button variant="contained">ورود و فعالسازی</Button>
@@ -99,7 +106,11 @@ export default function Header(props: Props) {
               </Link>
             ))}
           </Grid>
-          <Grid sx={{ size: { xs: "4", sm: "2" } }} justifyContent="center">
+          <Grid
+            size={{ xs: 4, sm: 2 }}
+            sx={{ display: "flex" }}
+            justifyContent="center"
+          >
             <Image
               src="/assets/logo/sos-logo.svg"
               alt="Logo"
@@ -109,7 +120,8 @@ export default function Header(props: Props) {
             />
           </Grid>
           <Grid
-            sx={{ mr: 2, display: { sm: "none" }, size: { xs: "2" } }}
+            size={{ xs: 2 }}
+            sx={{ display: { xs: "flex", sm: "none" } }}
             justifyContent="center"
           >
             <IconButton
@@ -118,7 +130,7 @@ export default function Header(props: Props) {
               edge="start"
               onClick={handleDrawerToggle}
             >
-              <MenuIcon />
+              <MenuIcon fontSize="large" color="primary" />
             </IconButton>
           </Grid>
         </Grid>

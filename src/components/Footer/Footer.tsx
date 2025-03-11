@@ -20,7 +20,7 @@ export default function Footer() {
       }}
     >
       <Typography variant="body1" align="center">
-        © {new Date().getFullYear()} My Next.js App
+        © {new Date().getFullYear()} Next.js App
       </Typography>
       <Typography variant="body2" align="center" color="text.secondary">
         Built with{" "}
