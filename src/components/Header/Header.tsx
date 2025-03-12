@@ -43,13 +43,15 @@ export default function Header(props: Props) {
       </Box>
 
       <Divider />
-      <List>
+      <List sx={{ display: "flex", flexDirection: "column-reverse" }}>
         {navItems.map((item) => (
           <ListItem
             key={item.title}
             sx={{ display: "flex", justifyContent: "center", paddingLeft: "0" }}
           >
-            <Link href={item.to}>{item.title}</Link>
+            <Link href={item.to}>
+              {item.title}
+            </Link>
           </ListItem>
         ))}
       </List>
@@ -64,7 +66,6 @@ export default function Header(props: Props) {
       <AppBar
         component="nav"
         sx={{
-          height: "72px",
           backgroundColor: "white",
           display: "flex",
           justifyContent: "space-between",
@@ -95,8 +96,8 @@ export default function Header(props: Props) {
             }}
           >
             {navItems.map((item) => (
-              <Link key={item.title} href={item.to}>
-                {item.title}
+              <Link key={item.title} href={item.to} passHref>
+                <Button component="a">{item.title}</Button>
               </Link>
             ))}
           </Grid>

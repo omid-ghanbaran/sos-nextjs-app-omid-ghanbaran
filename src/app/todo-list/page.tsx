@@ -1,7 +1,9 @@
-import React from "react";
+import TodoList from "@/components/view/TodoList";
 
-function page() {
-  return <div>page</div>;
+export default function Home() {
+  return (
+    <div>
+      <TodoList />
+    </div>
+  );
 }
-
-export default page;

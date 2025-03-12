@@ -8,7 +8,6 @@ interface ResponseError {
 export async function GET(): Promise<NextResponse<Article[] | ResponseError>> {
   try {
     const res = await fetch("http://localhost:5000/articles");
-    console.log(res);
 
     if (!res.ok) {
       return NextResponse.json(
@@ -18,7 +17,9 @@ export async function GET(): Promise<NextResponse<Article[] | ResponseError>> {
     }
 
     const posts: Article[] = await res.json();
+
     return NextResponse.json(posts);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return NextResponse.json(
       { error: "مشکلی در ارتباط با سرور رخ داده است." },
